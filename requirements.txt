@@ -6,3 +6,4 @@ flake8==6.0.0
 black==23.3.0
 strawberry-graphql==0.206.0
 pytest-cov
+debugpy
