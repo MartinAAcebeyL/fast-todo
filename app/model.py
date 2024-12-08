@@ -1,6 +1,6 @@
 from typing import Dict, Optional
 from pydantic import BaseModel, Field
-import strawberry
+
 
 class TaskCreate(BaseModel):
     title: str = Field(..., min_length=1, max_length=100)

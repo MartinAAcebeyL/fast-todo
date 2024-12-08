@@ -16,7 +16,7 @@ def test_create_task_mutation():
     query = """
     mutation {
         createTask(task: {
-            title: "GraphQL Test Task", 
+            title: "GraphQL Test Task",
             description: "GraphQL Test Description"
         }) {
             id
@@ -34,7 +34,7 @@ def test_create_task_mutation():
 
     assert created_task["title"] == "GraphQL Test Task"
     assert created_task["description"] == "GraphQL Test Description"
-    assert created_task["completed"] == False
+    assert created_task["completed"] is False
 
 
 def test_update_task_mutation():
@@ -68,7 +68,7 @@ def test_update_task_mutation():
 
     updated_task = update_response.json()["data"]["updateTask"]
     assert updated_task["title"] == "Updated GraphQL Task"
-    assert updated_task["completed"] == True
+    assert updated_task["completed"] is True
 
 
 def test_delete_task_mutation():
@@ -94,4 +94,4 @@ def test_delete_task_mutation():
     assert delete_response.status_code == 200
 
     deletion_result = delete_response.json()["data"]["deleteTask"]
-    assert deletion_result == True
+    assert deletion_result is True

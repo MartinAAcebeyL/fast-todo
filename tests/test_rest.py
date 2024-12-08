@@ -36,7 +36,7 @@ def test_update_task():
     response = client.put(f"/tasks/{task_id}", json=update_data)
     assert response.status_code == 200
     assert response.json()["title"] == "Updated Title"
-    assert response.json()["completed"] == True
+    assert response.json()["completed"] is True
 
 
 def test_delete_task():

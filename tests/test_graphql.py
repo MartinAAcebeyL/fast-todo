@@ -8,7 +8,7 @@ def test_create_task():
     query = """
     mutation {
         createTask(task: {
-            title: "Test Task", 
+            title: "Test Task",
             description: "Test Description"
         }) {
             id
@@ -70,7 +70,7 @@ def test_update_task():
     assert response.status_code == 200
     data = response.json()
     assert data["data"]["updateTask"]["title"] == "Updated Title"
-    assert data["data"]["updateTask"]["completed"] == True
+    assert data["data"]["updateTask"]["completed"] is True
 
 
 def test_delete_task():
@@ -94,4 +94,4 @@ def test_delete_task():
     response = client.post("/graphql", json={"query": delete_query})
     assert response.status_code == 200
     data = response.json()
-    assert data["data"]["deleteTask"] == True
+    assert data["data"]["deleteTask"] is True

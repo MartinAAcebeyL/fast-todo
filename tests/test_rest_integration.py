@@ -24,7 +24,7 @@ def test_create_and_retrieve_task():
     # Verificar datos de la tarea creada
     assert created_task["title"] == "Integration Test Task"
     assert created_task["description"] == "Test Description"
-    assert created_task["completed"] == False
+    assert created_task["completed"] is False
 
     # Recuperar tarea
     task_id = created_task["id"]
@@ -54,7 +54,7 @@ def test_update_task_workflow():
 
     # Verificar cambios
     assert updated_task["title"] == "Updated Task"
-    assert updated_task["completed"] == True
+    assert updated_task["completed"] is True
     assert updated_task["id"] == task_id
 
 
